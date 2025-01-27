@@ -4,7 +4,7 @@
 ## usage
 
 ```bash
-$ go install github.com/haton14/loan-go/cmd/loan@v0.0.1
+$ go install github.com/haton14/loan-go/cmd/loan@v0.0.2
 
 $ loan -help     
 Usage of loan:
