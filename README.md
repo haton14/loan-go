@@ -15,6 +15,7 @@ Usage of loan:
   -term int
         期間(月) (default 420)
 
+## 今のところは毎月の支払額を求める機能だけ対応しています
 $ loan --principal 10000000 --interestRate 0.625 --term 420
 26514.7336202080067668863
 ```
