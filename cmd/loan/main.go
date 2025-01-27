@@ -26,6 +26,15 @@ func main() {
 	if err != nil {
 		panic(err)
 	}
-	result := loango.CalculateMonthlyPayment(principal, interestRate, loango.Term(termVar))
-	fmt.Println(result)
+	monthlyPayment := loango.CalculateMonthlyPayment(principal, interestRate, loango.Term(termVar))
+	fmt.Println("月の支払額:", monthlyPayment)
+	currentPrincipal := principal
+	fmt.Println("元金, 利息")
+	for i := loango.Term(1); i <= loango.Term(termVar); i++ {
+		remaingPrincipal := loango.CalculateRemainingPrincipal(principal, interestRate, monthlyPayment, i)
+		principalPayment := currentPrincipal.Sub(remaingPrincipal)
+		InterestPayment := monthlyPayment.Sub(principalPayment)
+		fmt.Printf("%s, %s\n", principalPayment, InterestPayment)
+		currentPrincipal = remaingPrincipal
+	}
 }
